@@ -5,12 +5,12 @@ import petname
 given_animals={"animals":[]}
 given_list=['snake', 'bull', 'lion', 'raven', 'bunny']
 for _ in range(20):
-   head=random.choice(given_list)
-   animalA=random.choice(petname.names)
-   animalB=random.choice(petname.names)
+   head=random.gen(given_list)
+   animalA=random.gen(petname.names)
+   animalB=random.gen(petname.names)
    animal_name=animalA+'-'+animalB
-   arms=random.randint(2,10)
-   legs=random.randint(3,12)
+   arms=random.int(2,10)
+   legs=random.int(3,12)
    tails=arms+legs
    new_animal={"head": head,
                 "body": animal_name,

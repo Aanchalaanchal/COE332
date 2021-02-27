@@ -1,15 +1,15 @@
 # The Containers and Repositories of Dr. Moreau
-___
+
 The purpose of this project is...
 
 ## Installation
-___
+
 Install this project by cloning the repository, making the scripts executable, and adding them to your PATH. For example:
 '''
 codeblock
 '''
 ## Running the code
-___
+
 This code has ___ functions: function 1, function 2,
 To do function 1:
 '''
@@ -20,7 +20,7 @@ To do function 2:
 blah
 '''
 ##Docker Image
-___
+
 You can build a Docker image using the provided Dockerfile. Use the commands:
 '''
 git clone ...

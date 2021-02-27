@@ -9,8 +9,8 @@ for _ in range(20):
    animalA=random.choice(petname.names)
    animalB=random.choice(petname.names)
    animal_name=animalA+'-'+animalB
-   arms=random.randint(2,10)
-   legs=random.randint(3,12)
+   arms=random.randrange(2,11,2)
+   legs=random.randrange(3,13,3)
    tails=arms+legs
    new_animal={"head": head,
                 "body": animal_name,

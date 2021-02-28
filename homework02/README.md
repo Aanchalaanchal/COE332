@@ -6,7 +6,8 @@ The purpose of this project is...
 
 Install this project by cloning the repository, making the scripts executable, and adding them to your PATH. For example:
 ```
-codeblock
+git clone https://github.com/Aanchalaanchal/COE332/edit/main/homework02
+chmod??
 ```
 ## Running the code
 
@@ -24,6 +25,8 @@ blah
 You can build a Docker image using the provided Dockerfile. Use the commands:
 ```
 git clone ...
+cd repo/
+docker build -t <dockerhubusername>/<code>:<version> .
 ```
 An examples of running the scripts inside a container is:
 ```
@@ -33,5 +36,8 @@ docker run ....     # read_animals.py
 ## Test
 Test XYZ aspect of code by running:
 ```
-example
+docker run --rm -it username/json-parser:1.0 /bin/bash
+cd /home
+generate_animals.py test.json
+read_animals.py test.json
 ```

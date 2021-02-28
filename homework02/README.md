@@ -1,12 +1,12 @@
 # The Containers and Repositories of Dr. Moreau
 
-The purpose of this project is...
+The purpose of this project is to breed two randomly selected animals.
 
 ## Installation
 
 Install this project by cloning the repository, making the scripts executable, and adding them to your PATH. For example:
 ```
-git clone https://github.com/Aanchalaanchal/COE332/edit/main/homework02
+git clone ??
 chmod??
 ```
 ## Running the code

@@ -18,16 +18,19 @@ print (output1)
 @app.route('/animals')
 def getanimals():
         new_output = [x for x in jsonList]
+        return new_output
         print (new_output)
 
 @app.route('/animals/heads/bunny')
 def getheads():
         output2 = [x for x in jsonList if x['head'] == 'bunny']
+        return output2
         print (output2)
 
 @app.route('/animals/legs/6')
 def getlegs():
         output3 = [x for x in jsonList if x['legs'] == 6]
+        return output3
         print (output3)
 
 if __name__ == '__main__':

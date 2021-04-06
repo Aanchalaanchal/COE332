@@ -15,19 +15,19 @@ output1 = [x for x in jsonList if x['head'] == 'snake']
 print (output1)
 
 
-@app.route('/animals')
+@app.route('/animals', methods=['GET'])
 def getanimals():
         new_output = [x for x in jsonList]
         return new_output
         print (new_output)
 
-@app.route('/animals/heads/bunny')
+@app.route('/animals/heads/bunny', methods=['GET'])
 def getheads():
         output2 = [x for x in jsonList if x['head'] == 'bunny']
         return output2
         print (output2)
 
-@app.route('/animals/legs/6')
+@app.route('/animals/legs/6', methods=['GET'])
 def getlegs():
         output3 = [x for x in jsonList if x['legs'] == 6]
         return output3

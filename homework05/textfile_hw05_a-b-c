@@ -1,0 +1,53 @@
+_A_
+
+1. yaml file used: hw05-a-pod.yml
+   command issued to create the pod: kubectl apply -f hw05-a-pod.yml
+   
+2.
+kubectl get pods --selector=greeting=personalized
+NAME    READY   STATUS    RESTARTS   AGE
+hello   1/1     Running   0          40s
+
+3. output: Hello,
+
+4. kubectl delete pod hello
+
+
+
+_B_
+
+1. yaml file used: hw05-B-pod.yml
+   command issued to create the pod: kubectl apply -f hw05-b-pod.yml
+
+2.
+kubectl logs -f hello
+Hello, Aanchal
+
+3.
+kubectl delete pod hello
+pod "hello" deleted
+
+
+
+_C_
+
+1. yaml file used: hw05-c-deployment.yml
+   command issued: kubectl apply -f hw05-c-deployment.yml
+   
+2.
+kubectl get pods -o wide --selector=greeting=Personalized
+NAME                     READY   STATUS    RESTARTS   AGE   IP             NODE   NOMINATED NODE   READINESS GATES
+hello-fdc647978-467lm    1/1     Running       0          35s   10.244.13.94   c11    <none>           <none>
+hello-fdc647978-dmlhc    1/1     Running       0          32s   10.244.7.250   c05    <none>           <none>
+hello-fdc647978-rgcjn    1/1     Running       0          33s   10.244.12.82   c12    <none>           <none>
+
+3.
+[as88662@isp02 homework05]$ kubectl logs -f hello-fdc647978-467lm
+Hello, Aanchal
+^C
+[as88662@isp02 homework05]$ kubectl logs -f hello-fdc647978-dmlhc
+Hello, Aanchal
+^C
+[as88662@isp02 homework05]$ kubectl logs -f hello-fdc647978-rgcjn
+Hello, Aanchal
+^C

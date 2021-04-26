@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: as88662_test
+  name: as88662-test-pvc-deployment
   labels:
     username: as88662
     env: test
@@ -11,16 +11,22 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-app
+      app: as88662-test-redis
   template:
     metadata:
       labels:
-        app: hello-app
+        username: as88662
+        env: test
+        app: as88662-test-redis
     spec:
       containers:
-        - name: hellos
+        - name: as88662-test-redis
+          imagePullPolicy: Always
           image: redis:5.0.0
-          command: ['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']
           volumeMounts:
-          - name: as88662_test
+          - name: as88662-test-pvc-data
             mountPath: "/data"
+      volumes:
+      - name: as88662-test-pvc-data
+        persistentVolumeClaim:
+          claimName: as88662-test-pvc-data

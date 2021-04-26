@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: as88662_test
+  name: as88662-test-pvc-data
   labels:
     username: as88662
     env: test

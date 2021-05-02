@@ -4,6 +4,13 @@ import json
 import petname
 import uuid
 import datetime
+import sys
+import redis
+
+rd = redis.StrictRedis(host='127.0.0.1', port=6408, db=0)
+
+def redis_list(count, animal):
+   rd.hmset(count,animal)
 
 given_animals={"animals":[]}
 given_list=['snake', 'bull', 'lion', 'raven', 'bunny']
@@ -24,6 +31,7 @@ for x in range(100):
                 "created on" : str(datetime.datetime.now())}
 
    given_animals['animals'].append(new_animal)
+   redis_list(x, animal)
 
    with open("animals.json", "w") as outfile:
        json.dump(given_animals, outfile)

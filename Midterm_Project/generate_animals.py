@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import random
 import json
 import petname
@@ -6,7 +7,7 @@ import datetime
 
 given_animals={"animals":[]}
 given_list=['snake', 'bull', 'lion', 'raven', 'bunny']
-for _ in range(20):
+for x in range(100):
    head=random.choice(given_list)
    animalA=random.choice(petname.names)
    animalB=random.choice(petname.names)

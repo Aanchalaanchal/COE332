@@ -1,35 +1,16 @@
+#!/usr/bin/env python3
 import json
 from flask import Flask, request
+import petname
+import random
+import uuid
+import datetime
 import redis
 
 app = Flask(__name__)
 
-def get_data():
-    with open("animals.json", "r") as json_file:
-        userdata = json.load(json_file)
-    return userdata
-test = get_data()
-print (type(test))
-jsonList = test['animals']
-print (type(jsonList))
-output1 = [x for x in jsonList if x['head'] == 'snake']
-print (output1)
-
-#def get_data():
-#    rd = redis.StrictRedis(host='redis', port=6379, db=8)
-#    userdata = {"animals":[]}
-#    for x in range(100):
-#        new_animal={"head": head,
-#                     "body": animal_name,
-#                     "arms": arms,
-#                     "legs": legs,
-#                     "tail": tails,
-#                     "uid" : str(uuid.uuid4()),
-#                     "created on" : str(datetime.datetime.now())}
-#        userdata['animals'].append(animal)
-
-@app.route('/establish', methods=['GET'])
-def establish_database():
+@app.route('/create', methods=['GET'])
+def create_database():
     rd = redis.StrictRedis(host='redis', port=6379, db=8)
     given_animals={"animals":[]}
     given_list=['snake', 'bull', 'lion', 'raven', 'bunny']
@@ -50,6 +31,20 @@ def establish_database():
                     "created on" : str(datetime.datetime.now())}
        rd.hmset(x, new_animal)
     return "database created"
+
+def get_data():
+    rd = redis.StrictRedis(host='redis', port=6379, db=8)
+    userdata = {"animals":[]}
+    for x in range(100):
+        new_animal={"head": str(rd.hget(x, 'head')),
+                     "body": str(rd.hget(x, 'body')),
+                     "arms": str(rd.hget(x, 'arms')),
+                     "legs": str(rd.hget(x, 'legs')),
+                     "tail": str(rd.hget(x, 'tail')),
+                     "uid" : str(rd.hget(x, 'uid')),
+                     "created on" : str(rd.hget(x, 'creation time'))}
+        userdata['animals'].append(animal)
+    return userdata
 
 
 @app.route('/animals', methods=['GET'])
